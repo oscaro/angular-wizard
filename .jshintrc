@@ -1,0 +1,75 @@
+// http://www.jshint.com/docs/options/
+// https://github.com/millermedeiros/amd-utils/blob/master/.jshintrc
+// https://github.com/angular/angular.js/blob/master/src/.jshintrc
+{
+
+  "globalstrict"  : true,
+
+  // Predefined globals whom JSHint will ignore.
+  "browser"       : true,  // Standard browser globals e.g. `window`, `document`.
+
+  // The Good Parts.
+  "asi"           : false, // Tolerate Automatic Semicolon Insertion (no semicolons).
+  "bitwise"       : false, // Prohibit bitwise operators (&, |, ^, etc.).
+  "boss"          : true,  // Tolerate assignments inside if, for & while.
+  "curly"         : false, // Require {} for every new block or scope.
+  "eqeqeq"        : true,  // Require triple equals i.e. `===`.
+  "eqnull"        : true,  // Tolerate use of `== null`.
+  "evil"          : false, // Tolerate use of `eval`.
+  "expr"          : false, // Tolerate `ExpressionStatement` as Programs.
+  "forin"         : false, // Tolerate `for in` loops without `hasOwnPrototype`.
+  "immed"         : true,  // Require immediate invocations to be wrapped in parens e.g. `( function(){}() );`
+  "latedef"       : false, // Prohibit variable use before definition.
+  "laxbreak"      : false, // Tolerate unsafe line breaks e.g. `return [\n] x` without semicolons.
+  "loopfunc"      : false, // Allow functions to be defined within loops.
+  "noarg"         : true,  // Prohibit use of `arguments.caller` and `arguments.callee`.
+  "regexdash"     : true,  // Tolerate unescaped last dash i.e. `[-...]`.
+  "regexp"        : false, // Prohibit `.` and `[^...]` in regular expressions.
+  "scripturl"     : false, // Tolerate script-targeted URLs.
+  "shadow"        : false, // Allows re-define variables later in code e.g. `var x=1; x=2;`.
+  "supernew"      : false, // Tolerate `new function () { ... };` and `new Object;`.
+  "undef"         : false, // Require all non-global variables be declared before they are used.
+
+  // Personal styling prefrences.
+  "newcap"        : true,  // Require capitalization of all constructor functions e.g. `new F()`.
+  "noempty"       : true,  // Prohipit use of empty blocks.
+  "nomen"         : false, // Prohibit use of initial or trailing underbars in names.
+  "nonew"         : true,  // Prohibit use of constructors for side-effects.
+  "onevar"        : false, // Allow only one `var` statement per function.
+  "plusplus"      : false, // Prohibit use of `++` & `--`.
+  "sub"           : false, // Tolerate all forms of subscript notation besides dot notation e.g. `dict['key']`.
+  "trailing"      : true,  // Prohibit trailing whitespaces.
+  "white"         : false,  // Check against strict whitespace and indentation rules.
+
+  "globals"   : {
+    "_"                     : false,
+    "$"                     : false,
+    "afterEach"             : false,
+    "angular"               : false,
+    "beforeEach"            : false,
+    "browser"               : false,
+    "by"                    : false,
+    "confirm"               : false,
+    "context"               : false,
+    "describe"              : false,
+    "element"               : false,
+    "expect"                : false,
+    "exports"               : false,
+    "inject"                : false,
+    "it"                    : false,
+    "jasmine"               : false,
+    "jQuery"                : false,
+    "JSHINT"                : false,
+    "module"                : false,
+    "mostRecentAjaxRequest" : false,
+    "protractor"            : false,
+    "qq"                    : false,
+    "repeater"              : false,
+    "runs"                  : false,
+    "spyOn"                 : false,
+    "spyOnEvent"            : false,
+    "waitsFor"              : false,
+    "xdescribe"             : false
+  }
+
+}
