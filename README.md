@@ -1,13 +1,11 @@
-# Angular-Wizard
-
-**Forked from [mgonto/angular-wizard](https://github.com/mgonto/angular-wizard)**
+# Angular-Wizard forked from [mgonto/angular-wizard](https://github.com/mgonto/angular-wizard)
 
 Angular-wizard is a component that will make it easy for you to create wizards in your app.
 
 
 # Installation
 
-Downloading it manually by getting the files from the dist folder.
+Download it manually by getting the files from the dist folder.
 
 
 # Dependencies
