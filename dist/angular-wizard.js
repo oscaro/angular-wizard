@@ -4,7 +4,7 @@ angular.module('templates-angularwizard', ['js/step.tpl.html', 'js/wizard.tpl.ht
 
 angular.module("js/step.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("js/step.tpl.html",
-    "<div ng-show=\"selected\" ng-class=\"{ current: selected, done: completed }\" class=\"step\" ng-transclude></div>\n" +
+    "<div ng-class=\"{ current: selected, done: completed }\" class=\"step\" ng-transclude></div>\n" +
     "");
 }]);
 

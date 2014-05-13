@@ -1,6 +1,9 @@
+.step {
+  display: none; }
+  .step.current {
+    display: block; }
+
 .steps-indicator {
-  /* --- http://www.paulirish.com/2012/box-sizing-border-box-ftw/ ---- */
-  /* ---- steps quantity ---- */
   position: absolute;
   right: 0;
   bottom: 0;
