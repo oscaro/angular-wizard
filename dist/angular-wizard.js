@@ -189,6 +189,11 @@ angular
                     $scope.goTo($scope.steps[stepNumber]);
                 };
 
+                // Mark the `selectedStep` as `completed`.
+                this.completeSelectedStep = function() {
+                    $scope.selectedStep.completed = true;
+                };
+
                 this.finish = function () {
                     if ($scope.onFinish) {
                         $scope.onFinish();
