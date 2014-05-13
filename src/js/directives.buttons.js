@@ -17,7 +17,7 @@ function wizardButtonDirective(action) {
                         e.preventDefault();
                         $scope.$apply(function () {
                             $scope.$eval($attrs[action]);
-                            wizard[action.replace('wz', '').toLowerCase()]();
+                            wizard[action.replace('wizard', '').toLowerCase()]();
                         });
                     });
                 }
@@ -26,7 +26,7 @@ function wizardButtonDirective(action) {
 
 }
 
-wizardButtonDirective('wzNext');
-wizardButtonDirective('wzPrevious');
-wizardButtonDirective('wzFinish');
-wizardButtonDirective('wzCancel');
+wizardButtonDirective('wizardNext');
+wizardButtonDirective('wizardPrevious');
+wizardButtonDirective('wizardFinish');
+wizardButtonDirective('wizardCancel');

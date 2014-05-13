@@ -4,7 +4,7 @@ angular
 
     .module('mgo-angular-wizard')
 
-    .directive('wzStep', function () {
+    .directive('wizardStep', function () {
         return {
             restrict: 'EA',
             replace: true,
