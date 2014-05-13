@@ -1,3 +1,5 @@
+'use strict';
+
 angular.module('mgo-angular-wizard').directive('wzStep', function() {
     return {
         restrict: 'EA',
@@ -9,11 +11,11 @@ angular.module('mgo-angular-wizard').directive('wzStep', function() {
         },
         require: '^wizard',
         templateUrl: function(element, attributes) {
-          return attributes.template || "step.html";
+            return attributes.template || "step.html";
         },
         link: function($scope, $element, $attrs, wizard) {
             $scope.title = $scope.title || $scope.wzTitle;
             wizard.addStep($scope);
         }
-    }
+    };
 });

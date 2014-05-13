@@ -1,3 +1,5 @@
+'use strict';
+
 describe( 'AngularWizard', function() {
   beforeEach( module( 'mgo-angular-wizard' ) );
 
