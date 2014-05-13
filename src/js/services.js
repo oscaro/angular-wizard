@@ -10,7 +10,7 @@ angular
 
         var wizards = {};
 
-        service.defaultName = "defaultWizard";
+        service.defaultName = 'defaultWizard';
 
         service.addWizard = function(name, wizard) {
             wizards[name] = wizard;
@@ -25,7 +25,6 @@ angular
             if (!name) {
                 nameToUse = service.defaultName;
             }
-
             return wizards[nameToUse];
         };
 
