@@ -1,19 +1,14 @@
 {
-  "name": "angular-wizard",
+  "name": "oscaro-angular-wizard",
   "version": "0.4.0",
-  "main": "./dist/angular-wizard.js",
+  "main": "./dist/",
   "description": "Easy to use Wizard library for AngularJS",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mgonto/angular-wizard.git"
+    "url": "git://github.com/oscaro/angular-wizard.git"
   },
   "dependencies": {
-    "lodash": ">=1.3.0 <2.5.0",
-    "angular": "*"
-  },
-  "ignore": [
-    "node_modules",
-    "components",
-    "lib"
-  ]
+    "angular": "1.2.16"
+  }
 }
