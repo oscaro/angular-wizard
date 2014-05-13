@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Angular Wizard</title>
+
+    <link rel="stylesheet" href="css/angular-wizard.css" type="text/css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+
+    <script src="js/module.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/directives.buttons.js"></script>
+
+    <script>
+    'use strict';
+
+    angular
+
+        .module('wizard-sample', ['mgo-angular-wizard'])
+
+        .controller('WizardCtrl', function($scope, WizardHandler) {
+
+            $scope.finished = function() {
+                alert("Wizard finished :)");
+            }
+
+            $scope.logStep = function() {
+                console.log("Step continued");
+            }
+
+            $scope.goBack = function() {
+                WizardHandler.wizard().goTo(0);
+            }
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <h1>Wizard</h1>
+
+    <div ng-app="wizard-sample" ng-controller="WizardCtrl">
+        <wizard on-finish="finished()">
+            <wz-step title="Start">
+                <h1>Start</h1>
+                <p>Hey guys, welcome to the wizard :). If you want to check out the documentation on how to use it, <a href="https://github.com/mgonto/angular-wizard/blob/master/README.md">please click here.</a></p>
+                <p>Otherwise, let's continue with the wizard. Please <a href="" wz-next>click here to continue</a></p>
+                <input type="submit" wz-next value="Or click here"/>
+            </wz-step>
+            <wz-step title="Liking it">
+                <h1>Liking it</h1>
+                <p>You're now in the second step of this wizard.</p>
+                <p>Magic things can happen here.</p>
+                <input type="button" wz-next="logStep()" value="Click here to continue" />
+            </wz-step>
+            <wz-step title="More steps">
+                <h1>More steps</h1>
+                <p>Click on the bottom navigation on Liking it to go back to that step for example</p>
+                <input type="button" wz-next value="Click here to continue" />
+            </wz-step>
+            <wz-step title="Even more">
+                <h1>Even More steps</h1>
+                <p>I can't deal with so many steps. ARGH</p>
+                <input type="button" wz-next value="Click here to continue" />
+            </wz-step>
+            <wz-step title="Sup?">
+                <h1>Sup?</h1>
+                <p>I don't even know what to write!</p>
+                <input type="button" wz-next value="Click here to continue" />
+            </wz-step>
+            <wz-step title="Finish him">
+                <h1>Finish him</h1>
+                <p>Finally this ends!</p>
+                <input type="button" wz-next value="Click here to end" />
+                <input type="button" ng-click="goBack()" value="Click here to start again" />
+            </wz-step>
+        </wizard>
+    </div>
+
+</body>
+</html>

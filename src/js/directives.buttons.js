@@ -1,24 +1,29 @@
 'use strict';
 
 function wizardButtonDirective(action) {
-    angular.module('mgo-angular-wizard')
-        .directive(action, function() {
+
+    angular
+
+        .module('mgo-angular-wizard')
+
+        .directive(action, function () {
             return {
                 restrict: 'A',
                 replace: false,
                 require: '^wizard',
-                link: function($scope, $element, $attrs, wizard) {
+                link: function ($scope, $element, $attrs, wizard) {
 
-                    $element.on("click", function(e) {
+                    $element.on('click', function (e) {
                         e.preventDefault();
-                        $scope.$apply(function() {
+                        $scope.$apply(function () {
                             $scope.$eval($attrs[action]);
-                            wizard[action.replace("wz", "").toLowerCase()]();
+                            wizard[action.replace('wz', '').toLowerCase()]();
                         });
                     });
                 }
             };
         });
+
 }
 
 wizardButtonDirective('wzNext');
