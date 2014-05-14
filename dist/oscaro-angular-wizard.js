@@ -1,11 +1,53 @@
 'use strict';
+// Source: dist/js/oscaro-angular-wizard.tpls.js
+angular.module('templates-angularwizard', ['js/step.tpl.html', 'js/wizard.tpl.html']);
+
+angular.module("js/step.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("js/step.tpl.html",
+    "<div ng-class=\"{ current: selected, done: completed }\" class=\"step\" ng-transclude></div>\n" +
+    "");
+}]);
+
+angular.module("js/wizard.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("js/wizard.tpl.html",
+    "<div>\n" +
+    "    <div class=\"steps\" ng-transclude></div>\n" +
+    "    <ul class=\"steps-indicator steps-{{ steps.length }}\" ng-if=\"!hideIndicators\">\n" +
+    "        <li ng-class=\"{ default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed }\" ng-repeat=\"step in steps\">\n" +
+    "            <a ng-click=\"goTo(step)\">{{ step.title }}</a>\n" +
+    "        </li>\n" +
+    "    </ul>\n" +
+    "</div>\n" +
+    "");
+}]);
+
 // Source: dist/js/app.js
+/*
+ * Main `oscaro-angular-wizard` module definition.
+ *
+ * Some directives inside the module take HTML markup either using `template` property,
+ * or via external URL specified via `templateUrl` property. Keeping templates separate
+ * from the rest of the code means every template is a separate request.
+ * While it ease the development of the module, it can slow page load in production.
+ * That's why we use `html2js` during the buid phase.
+ *
+ * The `templates-angularwizard` module is generated via `html2js` and is required in the
+ * build version (`dist`) of the script (ready to be deployed in a target environment).
+ *
+ * See:
+ *     - `grunt html2js` and `grunt concat`
+ *     - https://github.com/karlgoldstein/grunt-html2js
+ *     - http://bahmutov.calepin.co/angular-templates.html
+ *
+ * The following try...catch statement allow us to use the `oscaro-angular-wizard` in both
+ * `src` and `dist`.
+ */
+
 try {
     angular.module('templates-angularwizard');
     angular.module('oscaro-angular-wizard', ['templates-angularwizard']);
 } catch(err) {
-    // Failed to require `templates-angularwizard` which is generated via `html2js` during the buid phase.
-    angular.module('oscaro-angular-wizard', []);
+    angular.module('oscaro-angular-wizard', []);  // Failed to require `templates-angularwizard`.
 }
 
 // Source: dist/js/directives.buttons.js
@@ -243,28 +285,6 @@ angular
             }
         };
     });
-
-// Source: dist/js/oscaro-angular-wizard.tpls.js
-angular.module('templates-angularwizard', ['js/step.tpl.html', 'js/wizard.tpl.html']);
-
-angular.module("js/step.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("js/step.tpl.html",
-    "<div ng-class=\"{ current: selected, done: completed }\" class=\"step\" ng-transclude></div>\n" +
-    "");
-}]);
-
-angular.module("js/wizard.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("js/wizard.tpl.html",
-    "<div>\n" +
-    "    <div class=\"steps\" ng-transclude></div>\n" +
-    "    <ul class=\"steps-indicator steps-{{ steps.length }}\" ng-if=\"!hideIndicators\">\n" +
-    "        <li ng-class=\"{ default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed }\" ng-repeat=\"step in steps\">\n" +
-    "            <a ng-click=\"goTo(step)\">{{ step.title }}</a>\n" +
-    "        </li>\n" +
-    "    </ul>\n" +
-    "</div>\n" +
-    "");
-}]);
 
 // Source: dist/js/services.js
 angular
