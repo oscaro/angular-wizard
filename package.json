@@ -1,6 +1,6 @@
 {
   "name": "oscaro-angular-wizard",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Easy to use Wizard library for AngularJS",
   "filename": "oscaro-angular-wizard.min.js",
   "main": "./dist/oscaro-angular-wizard.min.js",
