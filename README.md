@@ -1,11 +1,18 @@
-# Angular-Wizard forked from [mgonto/angular-wizard](https://github.com/mgonto/angular-wizard)
+# Oscaro-Angular-Wizard
 
-Angular-wizard is a component that will make it easy for you to create wizards in your app.
+Oscaro-Angular-Wizard is a component that will make it easy for you to create wizards in your app.
+
+
+# Forked from [mgonto/angular-wizard](https://github.com/mgonto/angular-wizard)
+
+The code is forked from [mgonto/angular-wizard](https://github.com/mgonto/angular-wizard). Many thanks to **Martin Gontovnikas**.
 
 
 # Installation
 
-Download it manually by getting the files from the dist folder.
+Download `oscaro-angular-wizard` manually by getting the files from the dist folder, or via `bower`:
+
+    bower install git://github.com/oscaro/angular-wizard.git
 
 
 # Dependencies
@@ -17,12 +24,12 @@ Angular-wizard depends on [AngularJS](https://angularjs.org) `1.2.16`.
 
 ## First example
 
-The first thing we need to do is add a dependency to angular-wizard module which is called `mgo-angular-wizard`.
+The first thing we need to do is add a dependency to angular-wizard module which is called `oscaro-angular-wizard`.
 
 We can do this by doing:
 
 ````js
-angular.module('your-app', ['mgo-angular-wizard']);
+angular.module('your-app', ['oscaro-angular-wizard']);
 ````
 
 Now, in some HTML for a controller, you can just add a wizard as follows:

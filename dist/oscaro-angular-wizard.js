@@ -1,33 +1,11 @@
 'use strict';
-// Source: dist/js/angular-wizard.tpls.js
-angular.module('templates-angularwizard', ['js/step.tpl.html', 'js/wizard.tpl.html']);
-
-angular.module("js/step.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("js/step.tpl.html",
-    "<div ng-class=\"{ current: selected, done: completed }\" class=\"step\" ng-transclude></div>\n" +
-    "");
-}]);
-
-angular.module("js/wizard.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("js/wizard.tpl.html",
-    "<div>\n" +
-    "    <div class=\"steps\" ng-transclude></div>\n" +
-    "    <ul class=\"steps-indicator steps-{{ steps.length }}\" ng-if=\"!hideIndicators\">\n" +
-    "        <li ng-class=\"{ default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed }\" ng-repeat=\"step in steps\">\n" +
-    "            <a ng-click=\"goTo(step)\">{{ step.title }}</a>\n" +
-    "        </li>\n" +
-    "    </ul>\n" +
-    "</div>\n" +
-    "");
-}]);
-
 // Source: dist/js/app.js
 try {
     angular.module('templates-angularwizard');
-    angular.module('mgo-angular-wizard', ['templates-angularwizard']);
+    angular.module('oscaro-angular-wizard', ['templates-angularwizard']);
 } catch(err) {
     // Failed to require `templates-angularwizard` which is generated via `html2js` during the buid phase.
-    angular.module('mgo-angular-wizard', []);
+    angular.module('oscaro-angular-wizard', []);
 }
 
 // Source: dist/js/directives.buttons.js
@@ -35,7 +13,7 @@ function wizardButtonDirective(action) {
 
     angular
 
-        .module('mgo-angular-wizard')
+        .module('oscaro-angular-wizard')
 
         .directive(action, function () {
             return {
@@ -74,7 +52,7 @@ wizardButtonDirective('wizardCancel');
 
 angular
 
-    .module('mgo-angular-wizard')
+    .module('oscaro-angular-wizard')
 
     /**
      * The wizard component is built from a combination of 2 directives
@@ -98,7 +76,11 @@ angular
      * @description
      * The main `wizard` directive.
      * Act as a container for multiple steps and handle the state and navigation between steps.
-     * CSS classes are used in the markup and are based on the state of the wizard, e.g.:
+     * The state of the wizard is managed through 2 properties:
+     *     - step.completed
+     *     - step.selected
+     * CSS classes are used in the markup (and can be used via ng-animate) and are based on the
+     * state of the wizard, e.g.:
      * {
      *     default: !step.completed && !step.selected,
      *     current: step.selected && !step.completed,
@@ -262,10 +244,32 @@ angular
         };
     });
 
+// Source: dist/js/oscaro-angular-wizard.tpls.js
+angular.module('templates-angularwizard', ['js/step.tpl.html', 'js/wizard.tpl.html']);
+
+angular.module("js/step.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("js/step.tpl.html",
+    "<div ng-class=\"{ current: selected, done: completed }\" class=\"step\" ng-transclude></div>\n" +
+    "");
+}]);
+
+angular.module("js/wizard.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("js/wizard.tpl.html",
+    "<div>\n" +
+    "    <div class=\"steps\" ng-transclude></div>\n" +
+    "    <ul class=\"steps-indicator steps-{{ steps.length }}\" ng-if=\"!hideIndicators\">\n" +
+    "        <li ng-class=\"{ default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed }\" ng-repeat=\"step in steps\">\n" +
+    "            <a ng-click=\"goTo(step)\">{{ step.title }}</a>\n" +
+    "        </li>\n" +
+    "    </ul>\n" +
+    "</div>\n" +
+    "");
+}]);
+
 // Source: dist/js/services.js
 angular
 
-    .module('mgo-angular-wizard')
+    .module('oscaro-angular-wizard')
 
     .factory('WizardHandler', function() {
 

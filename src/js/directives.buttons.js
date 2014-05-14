@@ -4,7 +4,7 @@ function wizardButtonDirective(action) {
 
     angular
 
-        .module('mgo-angular-wizard')
+        .module('oscaro-angular-wizard')
 
         .directive(action, function () {
             return {

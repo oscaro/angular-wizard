@@ -2,7 +2,7 @@
 
 angular
 
-    .module('mgo-angular-wizard')
+    .module('oscaro-angular-wizard')
 
     .factory('WizardHandler', function() {
 

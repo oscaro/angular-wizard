@@ -11,7 +11,7 @@
 
 angular
 
-    .module('mgo-angular-wizard')
+    .module('oscaro-angular-wizard')
 
     /**
      * The wizard component is built from a combination of 2 directives
