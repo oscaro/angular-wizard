@@ -35,7 +35,11 @@ angular
      * @description
      * The main `wizard` directive.
      * Act as a container for multiple steps and handle the state and navigation between steps.
-     * CSS classes are used in the markup and are based on the state of the wizard, e.g.:
+     * The state of the wizard is managed through 2 properties:
+     *     - step.completed
+     *     - step.selected
+     * CSS classes are used in the markup (and can be used via ng-animate) and are based on the
+     * state of the wizard, e.g.:
      * {
      *     default: !step.completed && !step.selected,
      *     current: step.selected && !step.completed,
