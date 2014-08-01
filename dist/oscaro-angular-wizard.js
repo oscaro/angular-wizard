@@ -11,12 +11,12 @@ angular.module("js/step.tpl.html", []).run(["$templateCache", function($template
 angular.module("js/wizard.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("js/wizard.tpl.html",
     "<div>\n" +
-    "    <div class=\"steps\" ng-transclude></div>\n" +
     "    <ul class=\"steps-indicator steps-{{ steps.length }}\" ng-if=\"!hideIndicators\">\n" +
     "        <li ng-class=\"{ default: !step.completed && !step.selected, current: step.selected && !step.completed, done: step.completed && !step.selected, editing: step.selected && step.completed }\" ng-repeat=\"step in steps\">\n" +
     "            <a ng-click=\"goTo(step)\">{{ step.title }}</a>\n" +
     "        </li>\n" +
     "    </ul>\n" +
+    "    <div class=\"steps\" ng-transclude></div>\n" +
     "</div>\n" +
     "");
 }]);
