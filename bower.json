@@ -1,6 +1,6 @@
 {
   "name": "oscaro-angular-wizard",
-  "version": "0.5.2",
+  "version": "0.5.4",
   "main": "./dist/",
   "description": "Easy to use Wizard library for AngularJS",
   "license": "MIT",
