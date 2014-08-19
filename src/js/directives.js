@@ -105,6 +105,10 @@ angular
                     return $scope.steps.length;
                 };
 
+                this.getCurrentIndex = function () {
+                    return $scope.selectedStep.index;
+                };
+
                 // Collect all steps in the $scope.steps array.
                 this.addStep = function (stepScope) {
                     $scope.steps.push(stepScope);
@@ -116,7 +120,7 @@ angular
 
                 // Go to the next step.
                 this.next = function () {
-                    var index = $scope.selectedStep.index;
+                    var index = this.getCurrentIndex();
                     $scope.selectedStep.completed = true;  // Mark the selected step as `completed`.
                     if (index === $scope.steps.length - 1) {
                         this.finish();
@@ -142,7 +146,7 @@ angular
                 };
 
                 this.cancel = this.previous = function () {
-                    var index = $scope.selectedStep.index;
+                    var index = this.getCurrentIndex();
                     if (index === 0) {
                         throw new Error("Can't go back. It's already in step 0");
                     } else {
